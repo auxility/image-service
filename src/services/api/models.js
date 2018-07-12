@@ -1,5 +1,6 @@
 import Joi from 'joi'
 
-export const exampleSchema = Joi.object().keys({
-  exampleNumber: Joi.string().required().trim().min(2).max(40)
+export const fileUploadRequestSchema = Joi.object().keys({
+  base64: Joi.string().required().trim().min(4),
+  hashLength: Joi.number().required().min(6).max(32)
 })
