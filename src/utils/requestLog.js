@@ -1,4 +1,4 @@
-import logger from '../config/winston.user'
+import logger from '../config/winston'
 
 export default async (ctx, next) => {
   logger.info(`${ctx.method} ${ctx.url}`, {

@@ -4,6 +4,9 @@
   "description": "Service for storing files",
   "main": "index.js",
   "scripts": {
+    "start": "babel-node ./src/index.js",
+    "build": "babel src -d lib --source-maps",
+    "start:prod": "node ./lib/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

@@ -1,5 +1,5 @@
 import { Exception } from './Exception.class'
-import logger from '../config/winston.user'
+import logger from '../config/winston'
 
 export default async (ctx, next) => {
   try {

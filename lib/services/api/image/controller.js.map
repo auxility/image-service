@@ -1,0 +1,1 @@
+{"version":3,"sources":["../../../../src/services/api/image/controller.js"],"names":["get"],"mappings":";;;;;AAAA,eAAeA,GAAf,GAAsB,CAAE;;kBAET;AACbA;AADa,C","file":"controller.js","sourcesContent":["async function get () {}\n\nexport default {\n  get\n}"]}

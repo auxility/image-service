@@ -5,7 +5,7 @@ import bodyParser from 'koa-bodyparser'
 import router from './services/api/routes'
 import exceptionHandler from './utils/exceptionHandler'
 import requestLog from './utils/requestLog'
-import logger from './config/winston.user'
+import logger from './config/winston'
 import { PORT, NODE_ENV } from './config/env.config'
 
 const app = new Koa()
