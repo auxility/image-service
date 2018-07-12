@@ -1,0 +1,23 @@
+{
+  "name": "file-service",
+  "version": "1.0.0",
+  "description": "Service for storing files",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AppDevelopmentShop/file-service.git"
+  },
+  "keywords": [
+    "files",
+    "service"
+  ],
+  "author": "AppDevelopmentShop",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AppDevelopmentShop/file-service/issues"
+  },
+  "homepage": "https://github.com/AppDevelopmentShop/file-service#readme"
+}
