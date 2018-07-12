@@ -1,9 +1,11 @@
 import { fileUploadRequestSchema } from '../models'
 import logger from '../../../config/winston'
 import Exception from '../../../utils/Exception.class'
-import { generateFileName, uploadFile } from '../../../utils/fileUtil'
+import { generateFileName, uploadFile, downloadFile } from '../../../utils/fileUtil'
 
 async function get (ctx) {
+  const { fileName } = ctx.params
+  ctx.body = { status: 'success', message: 'File was downloaded', payload: downloadFile(fileName) }
 }
 
 async function post (ctx) {
