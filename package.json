@@ -12,12 +12,33 @@
   },
   "keywords": [
     "files",
-    "service"
+    "service",
+    "image"
   ],
   "author": "AppDevelopmentShop",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/AppDevelopmentShop/file-service/issues"
   },
-  "homepage": "https://github.com/AppDevelopmentShop/file-service#readme"
+  "homepage": "https://github.com/AppDevelopmentShop/file-service#readme",
+  "dependencies": {
+    "joi": "^13.4.0",
+    "koa": "^2.5.2",
+    "koa-bodyparser": "^4.2.1",
+    "koa-router": "^7.4.0"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
+    "babel-eslint": "^8.2.5",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-node8": "^1.2.0",
+    "eslint": "^5.1.0",
+    "eslint-config-standard": "^11.0.0",
+    "eslint-plugin-import": "^2.13.0",
+    "eslint-plugin-node": "^6.0.1",
+    "eslint-plugin-promise": "^3.8.0",
+    "eslint-plugin-standard": "^3.1.0"
+  }
 }
