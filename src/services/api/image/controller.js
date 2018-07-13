@@ -16,7 +16,7 @@ async function post (ctx) {
   const { base64 } = value
   const name = uuidv5(DOMAIN, uuidv5.URL)
   const res = await imageUtil.save(base64, name)
-  ctx.body = { status: 'success', message: 'File was uploaded', payload: { name, ext:  res.ext } }
+  ctx.body = { status: 'success', message: 'File was uploaded', payload: { name, ext: res.ext } }
 }
 
 export default {

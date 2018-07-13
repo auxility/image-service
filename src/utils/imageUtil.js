@@ -1,4 +1,5 @@
 import fs from 'fs'
+import sharp from 'sharp'
 import appRoot from 'app-root-path'
 import { Exception } from './Exception.class'
 
