@@ -1,20 +1,17 @@
-function generateFileName (base64String, hashLength) {
-  // TODO Provide logic for file's name generation
-  return null
-}
+import uuidv5 from 'uuid/v5'
+import base64 from 'base64-img'
+import findFile from 'find'
+import path from 'path'
 
-function uploadFile (fileName) {
-  // TODO Provide logic for uploading file
-  return null
+function uploadFile (base64String, hashLength) {
+  return base64.imgSync(base64String, 'static', uuidv5(base64String, uuidv5.URL).slice(0, hashLength))
 }
 
 function downloadFile (fileName) {
-  // TODO Provide logic for downloading file as base64 string
-  return null
+  return base64.base64Sync(findFile.fileSync('static').find((name) => path.parse(name).name === fileName))
 }
 
 export default {
-  generateFileName,
   uploadFile,
   downloadFile
 }
