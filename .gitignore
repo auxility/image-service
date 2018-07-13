@@ -3,5 +3,5 @@ node_modules/
 npm-debug.log
 .idea/
 lib/
-static/*.png
+static/*
 *.log
