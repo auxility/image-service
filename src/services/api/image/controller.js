@@ -1,24 +1,25 @@
-import { fileUploadRequestSchema } from '../models'
-import logger from '../../../config/winston'
+import { imageUploadRequestSchema } from '../models'
 import Exception from '../../../utils/Exception.class'
-import fileUtil from '../../../utils/fileUtil'
+import imageUtil from '../../../utils/imageUtil'
+import uuidv5 from 'uuid/v5'
+import { DOMAIN } from '../../../config/env.config'
 
 async function get (ctx) {
   const { fileName } = ctx.params
-  const data = await fileUtil.downloadFile(fileName)
-  ctx.body = { status: 'success', message: 'File was downloaded', payload: data }
-  logger.info(`File was downloaded: ${data}`)
+  ctx.type = 'image/png'
+  ctx.body = imageUtil.get(fileName)
 }
 
 async function post (ctx) {
-  const { error, value } = fileUploadRequestSchema.validate(ctx.request.body)
+  const { error, value } = imageUploadRequestSchema.validate(ctx.request.body)
   if (error) throw new Exception(400, 'Validation error!', error.details)
-  console.log('Value', value)
-  const fileName = await fileUtil.uploadFile(value.base64, value.hashLength)
-  ctx.body = { status: 'success', message: 'File was uploaded', payload: fileName }
-  logger.info(`File was uploaded: ${fileName}`)
+  const { base64 } = value
+  const name = uuidv5(DOMAIN, uuidv5.URL)
+  const res = await imageUtil.save(base64, name)
+  ctx.body = { status: 'success', message: 'File was uploaded', payload: { name, ext:  res.ext } }
 }
 
 export default {
-  get, post
+  get,
+  post
 }
