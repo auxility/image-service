@@ -11,4 +11,4 @@ RUN npm run build
 RUN rm -rf src
 RUN npm uninstall -g babel-cli
 RUN npm uninstall babel-plugin-transform-runtime
-ENV NODE_ENV development
+ENV NODE_ENV production
