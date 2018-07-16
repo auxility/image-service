@@ -1,8 +1,8 @@
 import { imageUploadRequestSchema } from '../models'
-import Exception from '../../../utils/Exception.class'
+import { Exception } from '../../../utils/Exception.class'
 import imageUtil from '../../../utils/imageUtil'
-import uuidv5 from 'uuid/v5'
-import { DOMAIN } from '../../../config/env.config'
+import { randomString } from '../../../utils/randomString'
+import { URL_LEN, URL_PREFIX } from '../../../config/env.config'
 
 async function get (ctx) {
   const { fileName } = ctx.params
@@ -14,7 +14,7 @@ async function post (ctx) {
   const { error, value } = imageUploadRequestSchema.validate(ctx.request.body)
   if (error) throw new Exception(400, 'Validation error!', error.details)
   const { base64 } = value
-  const name = uuidv5(DOMAIN, uuidv5.URL)
+  const name = `${URL_PREFIX}${await randomString(URL_LEN - URL_PREFIX.length)}`
   const res = await imageUtil.save(base64, name)
   ctx.body = { status: 'success', message: 'File was uploaded', payload: { name, ext: res.ext } }
 }
