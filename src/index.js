@@ -11,7 +11,7 @@ import { PORT, NODE_ENV } from './config/env.config'
 const app = new Koa()
 
 app
-  .use(bodyParser())
+  .use(bodyParser({ jsonLimit: '100mb' }))
   .use(requestLog)
   .use(exceptionHandler)
   .use(router.routes())
@@ -20,3 +20,6 @@ export default app.listen(PORT, () => {
   logger.debug(`HTTP Server listening on port: ${PORT}`)
   logger.debug(`Environment: ${NODE_ENV}`)
 })
+
+
+
