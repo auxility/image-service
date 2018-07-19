@@ -3,7 +3,7 @@
 module.exports = {
   apps : [
     {
-      name: "file-service",
+      name: "image-service",
       script: "./lib/index.js",
       watch: false,
       env: {
