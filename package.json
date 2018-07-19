@@ -1,7 +1,7 @@
 {
-  "name": "file-service",
-  "version": "1.0.0",
-  "description": "Service for storing files",
+  "name": "image-service",
+  "version": "2.0.0",
+  "description": "Service for storing images",
   "main": "src/index.js",
   "scripts": {
     "start": "babel-node ./src/index.js",
@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/AppDevelopmentShop/file-service.git"
+    "url": "git+https://github.com/AppDevelopmentShop/image-service.git"
   },
   "keywords": [
     "files",
@@ -21,9 +21,9 @@
   "author": "AppDevelopmentShop",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/AppDevelopmentShop/file-service/issues"
+    "url": "https://github.com/AppDevelopmentShop/image-service/issues"
   },
-  "homepage": "https://github.com/AppDevelopmentShop/file-service#readme",
+  "homepage": "https://github.com/AppDevelopmentShop/image-service#readme",
   "dependencies": {
     "app-root-path": "^2.1.0",
     "joi": "^13.4.0",

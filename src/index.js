@@ -1,18 +1,21 @@
 'use strict'
 
 import Koa from 'koa'
+import appRoot from 'app-root-path'
 import bodyParser from 'koa-bodyparser'
 import router from './services/api/routes'
-import exceptionHandler from './utils/exceptionHandler'
-import requestLog from './utils/requestLog'
-import logger from './config/winston'
+import exceptionHandler from './utils/exceptions/handler'
 import { PORT, NODE_ENV } from './config/env.config'
+import logger from './config/winston'
 
 const app = new Koa()
 
 app
+  .use((ctx, next) => {
+    ctx.state.images = `${appRoot}/static/`
+    return next()
+  })
   .use(bodyParser({ jsonLimit: '100mb' }))
-  .use(requestLog)
   .use(exceptionHandler)
   .use(router.routes())
 

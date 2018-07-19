@@ -1,7 +1,4 @@
-import fs from 'fs'
 import sharp from 'sharp'
-import appRoot from 'app-root-path'
-import { Exception } from './Exception.class'
 
 function parse (base64) {
   const match = base64.match(/^data:image\/([\w+]+);base64,([\s\S]+)/)
@@ -12,7 +9,7 @@ function parse (base64) {
   }
 
   if (!match) {
-    throw new Exception(400, 'image base64 data error')
+    throw new Error('image base64 data error')
   }
 
   const ext = baseType[match[1]] ? baseType[match[1]] : match[1]
@@ -24,18 +21,22 @@ function parse (base64) {
 
 async function save (base64, name) {
   const res = parse(base64)
-  const imgName = `${appRoot}/static/${name}`
   const buffer = Buffer.from(res.data, 'base64')
-  await sharp(buffer).png().toFile(imgName)
+  await sharp(buffer)
+    .resize(1920, 1920)
+    .max()
+    .withoutEnlargement()
+    .jpeg()
+    .toFile(name)
+  await sharp(buffer)
+    .resize(240, 240)
+    .max()
+    .withoutEnlargement()
+    .jpeg()
+    .toFile(`${name}-min`)
   return res
 }
 
-function get (name) {
-  return fs.createReadStream(`${appRoot}/static/${name}`)
-}
-
 export default {
-  parse,
-  save,
-  get
+  save
 }

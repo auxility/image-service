@@ -1,7 +1,11 @@
 import { Exception } from './Exception.class'
-import logger from '../config/winston'
+import logger from '../../config/winston'
 
 export default async (ctx, next) => {
+  logger.info(`${ctx.method} ${ctx.url}`, {
+    body: ctx.request.body,
+    ip: ctx.ip
+  })
   try {
     return await next()
   } catch (err) {
