@@ -12,3 +12,5 @@ RUN rm -rf src
 RUN npm uninstall -g babel-cli
 RUN npm uninstall babel-plugin-transform-runtime
 ENV NODE_ENV production
+ENV PORT 80
+CMD ["npm", "run", "start:prod"]
